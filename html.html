@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, D Prashant!</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #4CAF50, #218BEE); /* Gradient background */
+        color: #fff;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+
+    #countdown {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+
+    .circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 50px;
+        position: relative;
+        border: 5px solid #fff;
+    }
+
+    .circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease-in-out; /* Smoother image rotation */
+    }
+
+    .circle:hover img {
+        transform: rotate(360deg);
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Happy Birthday, D Prashant!</h1>
+    <div id="countdown"></div>
+    <div class="circle">
+        <img src="1702615910886.jpg" alt="D Prashant's Photo">
+    </div>
+</div>
+
+<script>
+    // Set the date we're counting down to (tomorrow)
+    var countDownDate = new Date();
+    countDownDate.setDate(countDownDate.getDate() + 1);
+    countDownDate.setHours(0, 0, 0, 0);
+
+    // Update the countdown every 1 second
+    var x = setInterval(function() {
+        // Get the current date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+        // If the countdown is over, display a message
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "Happy Birthday!";
+        }
+    }, 1000);
+</script>
+</body>
+</html>
